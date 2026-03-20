@@ -1,0 +1,25 @@
+* React = external library that helps us create websites easier.
+
+* To use React to create websites, we download the following external libraries.
+  - React
+  - ReactDOM
+
+* To use React to create mobile apps, we download the following external libraries.
+  - React
+  - ReactNative
+
+* ReactDOM.createRoot() sets up React and needs an HTML element passed in.
+
+* render() displays something inside the container.
+
+* Babel = JavaScript compiler
+  - Translates other languages into JavaScript.
+
+  - Need this since we using React, we use an ENHANCED version of JavaScript(JSX).
+
+* JSX = JavaScript XML
+  - Same as JS, but we can write HTML directly in our JavaScript code.
+
+  - PROBLEM: web browser doesn't understand JSX. We need to translate JSX into JavaScript using Babel external library.
+
+* 

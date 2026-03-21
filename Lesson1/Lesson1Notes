@@ -15,7 +15,7 @@
 * Babel = JavaScript compiler
   - Translates other languages into JavaScript.
 
-  - Need this since we using React, we use an ENHANCED version of JavaScript(JSX).
+  - Need this since when using React, we use an ENHANCED version of JavaScript(JSX).
 
 * JSX = JavaScript XML
   - Same as JS, but we can write HTML directly in our JavaScript code.

@@ -16,7 +16,7 @@
     </script>
     <script type="text/babel">
       const timeStamp = dayjs().format('HH:mm:ss');
-      const timeStampParagraph = <p>Current time: {timeStamp}</p>
+      const timeStampParagraph = <p>Current time: {timeStamp}</p>;
 
       const container = document.querySelector('.js-container');
       const root = ReactDOM.createRoot(container);
@@ -24,7 +24,7 @@
 
       setInterval(() => {
         const timeStamp = dayjs().format('HH:mm:ss');
-        const timeStampParagraph = <p>Current time: {timeStamp}</p>
+        const timeStampParagraph = <p>Current time: {timeStamp}</p>;
         
         root.render(timeStampParagraph);
       }, 1000);

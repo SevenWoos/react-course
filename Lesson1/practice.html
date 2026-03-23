@@ -14,11 +14,19 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      const dateString = dayjs().format('MMMM D');
-      console.log(dateString);
+      const timeStamp = dayjs().format('HH:MM:ss');
+      const timeStampParagraph = <p>Current time: {timeStamp}</p>;
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render();
+      const root = ReactDOM.createRoot(container);
+      root.render(timeStampParagraph);
+
+      setInterval(() => {
+        const timeStamp = dayjs().format('HH:MM:ss');
+        const timeStampParagraph = <p>Current time: {timeStamp}</p>;
+
+        root.render(timeStampParagraph);
+      }, 1000);
     </script>
   </body>
 </html>

@@ -1,0 +1,25 @@
+* When building websites, it is best to split up into many pieces of components, so we can work on a small piece of the website at a time.
+
+* Components = a piece of the website designed to be reusable.
+  - Component name starts with a capital letter.
+
+  - Created in React using functions.
+
+  - Example: textbox, button, chat messages.
+
+  - Component Syntax
+    - EX: <ChatInput></ChatInput>
+
+    - EX(using self-closing syntax): <ChatInput />
+      - Equivalent to: {ChatInput()}
+
+* With React, we can create our own HTML elements and use our own elements to build the website.
+
+* Fragments = similar to divs, they group elements together without creating an extra div. NOT a block element.
+  - EX: <> </>
+
+* Props = a parameter passed in every component that represents properties. Make our components reusable.
+  - Object that contains all attributes given to a component.
+
+* Use component "App" to create a website.
+  - 

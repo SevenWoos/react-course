@@ -1,0 +1,57 @@
+* Event Handler = runs a function when we interact with the website. Must be pascalCase.
+  - EX: <button onClick={}></button>
+
+* Generate a unique ID string with crypto.randomUUID()
+  - crypto.randomUUID()
+
+* State = data that is connected to the HTML.
+  - When we update the data, it will update the HTML.
+
+* React.useState() returns an array.
+  - The first element contains the CURRENT value of the data. 
+    - array[0]
+
+  - The second element is a function that UPDATES the data. Convention is to name this variable as set followed by name of data with CamelCase.
+    - array[1]
+
+    - Always use this function to update the data, since React will not update the HTML if we update the data DIRECTLY.
+
+    - aka "Updater Function"
+
+* Spread Operator takes the values in an array and copies them into a new array.
+  - (...)
+
+  - EX: ...chatMessages
+
+* onChange() runs a function when we change the text inside an <input>
+
+* event.target = gives us the element that we're typing in.
+
+* State = save data that changes over time.
+
+* Lifting the State Up
+  - Move state up to outer component, so we can share state between multiple components.
+
+* In React, state does NOT update immediately, it updates after ALL the code is finished.
+  - EX (Where the robot response is displayed but not the user's):
+    setChatMessages([
+            ...chatMessages, 
+            {
+              message: inputText, 
+              sender: 'user', 
+              id: crypto.randomUUID()
+            }
+          ]);
+
+          // Use Chatbot external library to get a response.
+          const response = Chatbot.getResponse(inputText);
+          setChatMessages([
+            ...chatMessages, 
+            {
+              message: response, 
+              sender: 'robot', 
+              id: crypto.randomUUID()
+            }
+          ]);
+
+* 

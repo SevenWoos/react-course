@@ -1,4 +1,4 @@
-* Event Handler = runs a function when we interact with the website. Must be pascalCase.
+* Event Handler = runs a function when we interact with the website. Must be camelCase.
   - EX: <button onClick={}></button>
 
 * Generate a unique ID string with crypto.randomUUID()
@@ -11,7 +11,7 @@
   - The first element contains the CURRENT value of the data. 
     - array[0]
 
-  - The second element is a function that UPDATES the data. Convention is to name this variable as set followed by name of data with CamelCase.
+  - The second element is a function that UPDATES the data. Convention is to name this variable as set followed by name of data with PascalCase.
     - array[1]
 
     - Always use this function to update the data, since React will not update the HTML if we update the data DIRECTLY.

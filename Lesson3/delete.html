@@ -19,7 +19,7 @@
       function ChatInput() {
         return (
           <>
-            <input
+            <input 
               placeholder="Send a message to Chatbot"
               size="30"
             />
@@ -44,8 +44,8 @@
             )}
           </div>
         );
-      }
-
+      };
+      
       // App Component
       function App() {
         return (
@@ -57,7 +57,7 @@
               sender="user"
             />
 
-            <ChatMessage
+            <ChatMessage 
               message="Hello! How can I help you?"
               sender="robot"
             />
@@ -72,7 +72,7 @@
               sender="robot"
             />
           </>
-        )
+        );
       };
 
       const container = document.querySelector('.js-container');

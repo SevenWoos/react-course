@@ -50,7 +50,7 @@
 
         return (
           <>
-            <input 
+            <input
               placeholder="Send a message to Chatbot"
               size="30"
               onChange={saveInputText}
@@ -64,7 +64,7 @@
         );
       };
 
-      // ChatMessage Component
+      // ChatMessage Component 
       function ChatMessage({ message, sender }) {
         return (
           <div>
@@ -87,7 +87,7 @@
           <>
             {chatMessages.map((chatMessage) => {
               return (
-                <ChatMessage 
+                <ChatMessage
                   message={chatMessage.message}
                   sender={chatMessage.sender}
                   key={chatMessage.id}
@@ -97,7 +97,7 @@
           </>
         );
       };
-      
+
       // App Component
       function App() {
         const [chatMessages, setChatMessages] = React.useState([{
@@ -105,7 +105,7 @@
           sender: 'user', 
           id: 'id1'
         }, {
-          message: 'Hello! How can I help you?',
+          message: 'Hello! How can I help you?', 
           sender: 'robot', 
           id: 'id2'
         }, {
@@ -113,7 +113,7 @@
           sender: 'user', 
           id: 'id3'
         }, {
-          message: 'Today is April 3', 
+          message: 'Today is April 4', 
           sender: 'robot', 
           id: 'id4'
         }]);
@@ -125,7 +125,7 @@
               setChatMessages={setChatMessages}
             />
 
-            <ChatMessages 
+            <ChatMessages
               chatMessages={chatMessages}
             />
           </>

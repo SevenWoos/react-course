@@ -1,0 +1,68 @@
+* CSS = change the appearance of the website.
+
+* In React, use "className" to add class since JS already has a reserved "class".
+  - EX: <button 
+          onClick={sendMessage}
+          className="send-button"  
+        >Send</button>
+
+* When a block element(like a div) is inside a flexbox, it NO longer takes up the entire line, but instead takes up as much as it needs to.
+
+* Elements inside a flexbox(like an image) will stretch vertically by default. Fix with "align-items".
+
+* Make the "app-container" stretch all the way to the botto of the browserrr.
+  - One way is to set the height with "height=100vh"
+
+* flex-grow = makes an element grow and take up the remaining space.
+
+* vh = viewport height(the height of the browser).
+  - 100vh = 100% of the height of the browser.
+
+* <body> has a default margin of 8px on all sides.
+  - Set margin to 0, so "app-container" doesn't stretch pass browser.
+
+* Make the chat messages scrollable with "overflow: scroll"
+  - Will start to scroll the messages when we overflow.
+
+* Hide the scrollbars with "scrollbar-width: none".
+
+* Add autoscrolling without having to manually scroll when we input a new chat message.
+  - Use a hook.
+
+* Hooks = insert React features into our component. Put hooks at TOP of component. Hooks should NOT be inside anything(not inside if statements, or functions).
+  - EX: React.useState() that inserts React component "State" into our component.
+
+  - EX: useEffect(), useRef(), etc
+
+* After adding a new chat message, we want to run some code to scroll to the bottom, so we'd use "useEffect()".
+
+* useEffect() = hook that runs some code after the component is created or updated.
+  - Passing in the SECOND arg as an empty array [] means useEffect() will only run ONCE after component is created.
+
+  - Passing in data, like [chatMessages], runs the function every time chatMessages changes. AKA Dependency Array
+
+* Dependency Array = array that lets control when useEffect() runs in a hook.
+  - Best practice is to give useEffect() a dependency array to avoid running too often.
+
+* To scroll to the bottom, we need to get the HTML element we want to scroll into our JavaScript.
+  - In JS, we'd use the DOM.
+
+  - In React, do NOT use DOM, instead use React features. use the hook "React.useRef()".
+
+* useRef() = hook that lets you automatically save an HTML element from the component.
+  - Creates a ref
+
+* ref = a special container with special React features.
+  - We can give this ref to React, and React can automatically save an HTML element inside the ref container.
+
+  - Set React.useRef(null) and save this to a veriable.
+
+  - Add a ref prop to the HTML element we want to save.
+
+  - Next use React.useEffect() to access HTML element saved inside the ref.
+    - chatMessagesRef.current
+
+* scrollTop = how far from the top should we scroll.
+  - EX: scrollTop = scrollHeight
+
+* scrollHeight = gives us total height of element.

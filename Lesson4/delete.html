@@ -39,7 +39,7 @@
       function App() {
         const [isButtonOn, setIsButtonOn] = React.useState(true);
 
-        function switchButton() {
+        function switchButtonOn() {
           if (isButtonOn) {
             setIsButtonOn(false);
           } else {
@@ -49,8 +49,9 @@
 
         return (
           <>
-            <button className={isButtonOn ? 'on-button' : 'off-button'}
-              onClick={switchButton}>
+            <button 
+              className={isButtonOn ? 'on-button' : 'off-button'}
+              onClick={switchButtonOn}>
               {isButtonOn ? 'ON' : 'OFF'}
             </button>
           </>
@@ -58,7 +59,7 @@
       };
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<App />)
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>

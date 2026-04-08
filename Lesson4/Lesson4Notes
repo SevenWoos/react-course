@@ -55,7 +55,7 @@
 * ref = a special container with special React features.
   - We can give this ref to React, and React can automatically save an HTML element inside the ref container.
 
-  - Set React.useRef(null) and save this to a veriable.
+  - Set React.useRef(null) and save this to a variable.
 
   - Add a ref prop to the HTML element we want to save.
 

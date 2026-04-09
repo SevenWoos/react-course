@@ -121,6 +121,13 @@
           setInputText('');
         };
 
+        // Handle Key Down Events
+        function handleKeyDown(event) {
+          if (event.key === 'Enter') {
+            sendMessage();
+          }
+        };
+
         return (
           <div className="chat-input-container">
             <input 
@@ -129,6 +136,7 @@
               onChange={saveInputText}
               value={inputText}
               className="chat-input"
+              onKeyDown={handleKeyDown}
             />
             <button 
               onClick={sendMessage}

@@ -1,0 +1,82 @@
+* mkdir = make directory(folder).
+  - creates a new folder.
+
+  - EX: mkdir test
+
+* pwd = print working directory
+
+* ls = list everything in current working directory.
+
+* cd = change directory
+  - EX: cd test
+
+* cd .. = go out of folder.
+  - .. = the outer folder.
+
+* NodeJS = free, open-source, cross-paltform JavaScript runtime environment that lets devs create servers. web apps, command line tools and scripts.
+
+* node = cmd that lets us run JavaScript code outside of a browser.
+  - EX: node react-basics.js
+
+* npm = node package manager
+  - package = external library
+
+  - cmd that lets us install external libraries or packages into our project.
+
+  - EX: npm install supersimpledev
+
+* Some packagaes add a command to our command line.
+  - EX: "create-vite" package adds the "create-vite" cmd.
+
+  - "create-vite": cmd helps us set up a new React project.
+
+* npx = cmd that installs the package AND runs the cmd in the command line.
+  - 'x' = execute
+
+  - EX: npx create-vite
+
+  - @ means using a specific version of "create-vite"
+
+  - EX: npx create-vite@6.5.0
+
+* Run "npm install"
+  - Inside the newly created "chatbot-project", we hae a file called "package.json" which contains l of all packages and dependencies needed for project.
+
+  - "npm install" will install all these packages.
+
+  - All packages will be downloaded into "node_modules" folder.
+
+* Run "npm run dev"
+  - This will start up our new React website.
+
+* "src" = source folder that contains code for our website.
+  - JS, CSS, etc
+
+* "public" = folder that contains files that should be available to the public. We can access these using a URL.
+  - EX: Given an image URL, we can access it.
+
+* "eslint.config.js" = using by eslint.
+
+* eslint = highlights problems in our JavaScript code.
+  - Install the extension on VSCode to use.
+
+* "index.html" = contains HTML code for project.
+
+* "package-lock.json" = saves the package version numbers of all the packages we install.
+  - This makes sure we get the same versions for all these packages.
+
+  - npm AUTOMATICALLY updates "package-lock.json", so we do not need to update it.
+
+* "package.json" = contains list of packages we need for the project.
+
+* "vite.config.js" = configures Vite(tool we used to set u project, build the website, and create server).
+  - A server puts our website at a URL.
+
+* "main.jsx" renders the "App" component.
+  - It wraps the "App" component in a "StrictMode".
+
+* "<StrictMode>" = gives us some additional checks and warnings when developing our app.
+
+* Best practice is to separate each component into its own file.
+
+* 

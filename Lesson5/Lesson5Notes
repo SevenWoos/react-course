@@ -49,6 +49,11 @@
 * Run "npm run dev"
   - This will start up our new React website.
 
+* "npm run dev" 
+  - "npm run" tells the computer to look inside "package.json" for a section called "scripts".
+
+  - "dev" = look inside "scripts" for "dev" and run the command on the right side of "dev" ("vite" in in this case).
+
 * "src" = source folder that contains code for our website.
   - JS, CSS, etc
 

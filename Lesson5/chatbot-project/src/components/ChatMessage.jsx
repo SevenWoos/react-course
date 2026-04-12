@@ -1,5 +1,6 @@
 import RobotProfileImage from '../assets/robot.png';
-import UserProfileImage from '../assets/user.png';
+// import UserProfileImage from '../assets/user.png';
+import UserProfileImage from '../assets/malcolm.png';
 import './ChatMessage.css';
 
 // ChatMessage Component
@@ -25,5 +26,7 @@ export function ChatMessage({ message, sender }) {
           className="chat-message-profile"/>
       )}
     </div>
-  )
+  );
+
 };
+console.log(UserProfileImage);

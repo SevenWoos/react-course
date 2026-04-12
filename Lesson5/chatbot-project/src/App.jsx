@@ -40,7 +40,8 @@ function App() {
         setChatMessages={setChatMessages}
       />
     </div>
-  )
+  );
+  
 };
 
 export default App

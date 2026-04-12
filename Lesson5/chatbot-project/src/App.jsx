@@ -8,19 +8,23 @@ function App() {
   const [chatMessages, setChatMessages] = useState([{
     message: 'hello chatbot', 
     sender: 'user', 
-    id: crypto.randomUUID()
+    id: crypto.randomUUID(), 
+    time: 1736127288920
   }, {
     message: 'Hello! How can I help you?', 
     sender: 'robot', 
-    id: crypto.randomUUID()
+    id: crypto.randomUUID(), 
+    time: 1736127291230
   }, {
     message: 'can you get me todays date?', 
     sender: 'user', 
-    id: crypto.randomUUID()
+    id: crypto.randomUUID(), 
+    time: 1736127385356
   }, {
   message: 'Today is April 11', 
   sender: 'robot', 
-  id: crypto.randomUUID()
+  id: crypto.randomUUID(), 
+  time: 1736127385500
   }]);
 
   // useEffect to ADD more Chatbot responses.

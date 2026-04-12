@@ -79,4 +79,7 @@
 
 * Best practice is to separate each component into its own file.
 
+* "rmdir" removes a directory.
+  - EX: rmdir test2
+
 * 

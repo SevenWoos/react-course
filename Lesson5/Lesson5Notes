@@ -40,11 +40,13 @@
   - EX: npx create-vite@6.5.0
 
 * Run "npm install"
-  - Inside the newly created "chatbot-project", we hae a file called "package.json" which contains l of all packages and dependencies needed for project.
+  - Inside the newly created "chatbot-project", we have a file called "package.json" which contains l of all packages and dependencies needed for project.
 
   - "npm install" will install all these packages.
 
   - All packages will be downloaded into "node_modules" folder.
+
+  - Run this after "npx create-vite@version"
 
 * Run "npm run dev"
   - This will start up our new React website.

@@ -19,13 +19,13 @@ export function ChatMessage({ message, sender, time }) {
 
       <div className="chat-messages-text">
         {message}
-      </div>
 
-      {time && (
-        <div className="chat-message-time">
-          {dayjs(time).format('h:ma')}
-        </div>
-      )}
+        {time && (
+          <div className="chat-message-time">
+            {dayjs(time).format('h:mma')}
+          </div>
+        )}
+      </div>
 
       {sender === 'user' && (
         <img src={UserProfileImage} 

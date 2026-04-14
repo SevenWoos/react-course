@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chatbot</title>
+    <title>Delete</title>
 
     <style>
       body {
         font-family: Arial;
         margin-top: 0;
         margin-bottom: 0;
-      }
-
-      .chat-message-profile {
-        width: 45px;
       }
 
       .chat-input {
@@ -21,6 +17,11 @@
         font-size: 15px;
 
         flex-grow: 1;
+      }
+
+      .chat-input-container {
+        display: flex;
+        margin-bottom: 60px;
       }
 
       .send-button {
@@ -34,9 +35,21 @@
         cursor: pointer;
       }
 
-      .chat-input-container {
-        display: flex;
-        margin-bottom: 60px;
+      .chat-message-profile {
+        width: 45px;
+        height: 45px;
+        border-radius: 45px;
+        object-fit: cover;
+      }
+
+      .chat-message-text {
+        background-color: rgb(238, 238, 238);
+        padding: 15px 20px;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        width: 300px;
       }
 
       .chat-message-user {
@@ -50,22 +63,13 @@
         align-items: start;
       }
 
-      .chat-messages-text {
-        background-color: rgb(238, 238, 238);
-        padding: 15px 20px;
-        border-radius: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 20px;
-        width: 300px;
-      }
-
       .chat-messages-container {
         flex-grow: 1;
         margin-top: 20px;
+
         overflow: scroll;
         scrollbar-width: none;
-      } 
+      }
 
       .app-container {
         width: 600px;
@@ -144,45 +148,44 @@
         function handleKeyDown(event) {
           if (event.key === 'Enter') {
             sendMessage();
-          }
+          };
         };
 
         return (
           <div className="chat-input-container">
             <input 
-              placeholder="Send a message to Chatbot."
+              placeholder="Send a message to Chatbot"
               size="30"
               onChange={saveInputText}
               value={inputText}
               className="chat-input"
               onKeyDown={handleKeyDown}
-              />
+            />
 
             <button 
-              onClick={sendMessage}
-              className="send-button">
+              className="send-button"
+              onClick={sendMessage}>
               Send
             </button>
           </div>
-        )
+        );
       };
 
       // ChatMessage Component
       function ChatMessage({ message, sender }) {
         return (
           <div className= 
-            {sender === 'user'
-            ? 'chat-message-user'
-            : 'chat-message-robot'
-            }
-          >
+            {sender === 'user' 
+            ? 'chat-message-user' 
+            : 'chat-message-robot'}>
+
             {sender === 'robot' && (
               <img src="robot.png"
                 className="chat-message-profile"/>
             )}
 
-            <div className="chat-messages-text">
-              {message}
+            <div className="chat-message-text">
+              {message} 
             </div>
 
             {sender === 'user' && (
@@ -193,7 +196,6 @@
         )
       };
 
-      // autoScroll hook
       function useAutoScroll(dependencies) {
         const containerRef = React.useRef(null);
 
@@ -209,7 +211,7 @@
 
       // ChatMessages Component
       function ChatMessages({ chatMessages }) {
-        const chatMessagesRef = useAutoScroll([chatMessages]);
+        const chatMessagesRef = useAutoScroll(chatMessages);
 
         return (
           <div className="chat-messages-container"
@@ -224,7 +226,7 @@
               );
             })}
           </div>
-        )
+        );
       };
 
       // App Component
@@ -241,18 +243,17 @@
           message: 'can you get me todays date?', 
           sender: 'user', 
           id: crypto.randomUUID()
-        }, 
-      {
-        message: 'Today is April 11', 
-        sender: 'robot', 
-        id: crypto.randomUUID()
-      }]);
+        }, {
+          message: 'Today is April 12', 
+          sender: 'robot', 
+          id: crypto.randomUUID()
+        }]);
 
         return (
           <div className="app-container">
             {chatMessages.length === 0 && (
               <p className="welcome-message">
-                Welcome to the Chatbot project! Send a message using the textbox below.  
+                Welcome to the Chatbot project! Send a message using the textbox below.
               </p>
             )}
 
@@ -265,7 +266,7 @@
               setChatMessages={setChatMessages}
             />
           </div>
-        )
+        );
       };
 
       const container = document.querySelector('.js-container');

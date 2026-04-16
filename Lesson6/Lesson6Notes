@@ -1,0 +1,84 @@
+* Repository = a folder where Git is tracking changes.
+
+* ".gitignore" = tells Git which files and folders to ignore(not to track changes).
+
+* Web page a a single page.
+  EX: home page, cart page.
+
+* Website = a group of web pages.
+
+* We can only return ONE element from a component.
+
+* Vite will automatically look inside the "public" folder if we don't specify a starting folder in the path.
+
+* Routing = lets us create multiple pages in React.
+  - Lets us create multiple pages using 1 HTML file.
+
+  - install npm package "react-router"
+
+  - "npm install react-router@7.8.0"
+
+  - EX: Usually if we have multiple pages("checkout.html" and "orders.html"), we have some repeated code(doctype, meta, links, etc).
+
+    - If we want to change something on ONE page, we have to change something for ALL pages. Time-consuming :(
+
+    - 
+
+* How do we use "react-router"?
+  - In "main.jsx", wrap our "<App/>" with "<BrowserRouter/>"
+
+  - Make sure to run "import { BrowserRouter } from 'react-router';
+"
+
+  - Then in "App.jsx" , import "Routes"
+
+  - "import { Routes } from 'react-router';"
+
+* "<Routes>" = tells React all the pages that are in our website.
+
+  - To ADD a page to our website, we will use a component called "<Route>"
+
+  - Route = a page.
+
+  - "import { Routes, Route } from 'react-router';"
+
+  - Add "<Route>" inside "<Routes>".
+
+  - Give "<Route>", 2 props. --> 
+    - path = tells React URL path of the page.
+      - EX: "/checkout"
+
+    - element = tells React which element or component to display.
+
+  - EX: When we go to the URL path "/", the HomePage gets displayed.
+    "
+      <Routes>
+        <Route path="/" element={<HomePage/>}></Route>
+      </Routes>
+    "
+
+* Single Page Application(SPA) = we only have 1 HTML file shared by all our pages.
+  - We instead use React to create MULTIPLE pages.
+
+  - EX: "index.html" shared by all of our pages, reducing repetition.
+
+* "<Route index element={<HomePage/>}></Route>" is a shortcut for the following.
+  - "<Route path="/" element={<HomePage/>}></Route> "
+
+* "Components" folder is for shared components.
+  - EX: "Header.jsx"
+
+* "Pages" folder is for components specific to a page.
+
+* Link elements (<a>) by default reload the page.
+
+* We don't need to reload pages, we can use JavaScript to switch between pages.
+  - React-Router provides a component for this: "<Link>"
+
+  - "import { Link } from 'react-router';"
+
+  - "<Link>" = component that lets us go to another page without reloading.
+
+  - Faster since we can switch to another page WITHOUT reloading.
+
+* 

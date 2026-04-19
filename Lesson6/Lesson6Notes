@@ -81,4 +81,8 @@
 
   - Faster since we can switch to another page WITHOUT reloading.
 
+* css for the overall website goes into "index.css" file in React.
+
+* We keep the CSS pages besides the component it styles. Often in the same folder.
+
 * 

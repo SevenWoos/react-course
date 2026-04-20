@@ -1,0 +1,75 @@
+* When using React to generate the HTML and loop through an array, we need to give each element a "key" prop.
+  - Key prop helps React keep track of changes in an array.
+
+  - Key prop has to be unique. Like a "product.id"
+
+  - EX: <div className="products-grid">
+          {products.map((product) => {
+            return (
+              <div key={product.id} className="product-container">
+                <div className="product-image-container">
+                  <img className="product-image"
+                    src={product.image} />
+                </div>....
+        </div>
+
+* An ecommerce website may have thousands of products so it does NOT make sense to store all that data on ONE computer.
+   - Instead companies sets up another computer(Backend) usually in a data center that stores all the products.
+
+   - When we visit the website, the computer sends us the products data we actually need.
+
+   - Cart data stored on backend NOT customer's computer because if the customer tried to access the data from a different computer, they wouldn't have access to that cary data anymore.
+
+*  Backend = another computer that manages the data.
+  - Store the cart data to the backend.
+
+  - React usually contacts a backend to get the data.  
+
+* The backend can also run on the same computer as our frontend.
+  - localhost:3000 is our backend.
+
+* Running a backend is similar to running a React application.
+  - npm install
+
+  - npm run dev
+
+  - EX: backend is running on port 3000
+    - http://localhost:3000/api/products
+
+* Asynchronous Code = code that does NOT finish right away.
+
+* fetch() returns a promise.
+
+* Promise lets us wait for async code to finish.
+  - .then() method waits for async code to finish and then runs the function inside.
+
+  - data gets saved in "response: parameter inside then().
+
+* Data Fetching = get data from the backend using our code.
+  - Use fetch() function and pass in the URL of the data. 
+
+  - We can't save this data to a variable, because it takes time for the data fetching to complete. Async code.
+
+  - EX: fetch('http://localhost:3000/api/products')
+
+* response.json() gives us the data attached to the response.
+  - Also ASYNC, so we can't save it in a variable.
+
+  - Use .then() since it is also a PROMISE.
+
+  - fetch('http://localhost:3000/api/products')
+    .then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+      });
+    });
+
+  - shortcut version:
+    fetch('http://localhost:3000/api/products')
+    .then((response) => {
+      return response.json()
+    }).then((data) => {
+      console.log(data);
+    });
+
+* 

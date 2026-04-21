@@ -28,7 +28,7 @@ export function CheckoutPage({ cart }) {
 
         <div className="checkout-grid">
           <div className="order-summary">
-            {cart.map((cartItem) => {
+            {deliveryOptions.length > 0 && cart.map((cartItem) => {
               const selectedDeliveryOption = deliveryOptions
                 .find((deliveryOption) => {
                   return deliveryOption.id === cartItem.deliveryOptionId;

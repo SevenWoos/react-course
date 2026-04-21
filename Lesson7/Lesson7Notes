@@ -72,4 +72,63 @@
       console.log(data);
     });
 
+* axios = npm package that serves as a cleaner way to make requests to backend.
+  - EX: axios.get('http://localhost:3000/api/products')
+    .then((response) => {
+    console.log(response.data);
+    });
+
+* We want to load the products only ONCE, so use a "useEffect".
+  - useEffect() lets us control when some code runs.
+
+* Whoever creates the backend, decides what the URL paths to get the data will be.
+  - EX: /api/products = products data
+
+  - EX: /api/cart-items = cart data
+
+* Server Proxy Configuration: if URL path starts with '/api', the request will automatically go to the target we set up.
+  - EX: server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000'
+      }
+    }
+  }
+
+* Query Parameter = lets us add additional info to our request.
+  - EX: '/api/cart-items?expand=product')'
+    - This will expand the cart with product details.
+
+  - EX: 'axios.get('/api/delivery-options?expand=estimatedDeliveryTime')'
+    - When the backend sees the 'estimatedDeliveryTime' expand parameter, it will calculate the estimated delivery time.
+
+* When we loop through an array, each div element should have a key prop property. 
+  - BUT what if we have MULTIPLE divs, use a FRAGMENT.
+
+  - We canNOT add a key prop to a fragment like this '<></>'
+    - We need to use the FULL Fragment Syntax
+
+    - EX: <Fragment key={product.id}>
+
+* "async await" lets us write async code like normal code.
+  - We can now save our variable that we use to retrieve data from the backend API.
+
+  - EX: useEffect(async () => {
+          const response = await axios.get('/api/products');
+          setProducts(response.data);
+        }, []);
+
+  - PROBLEM ^ useEffect's inner function should NOT be returning a promise. It should only return nothing or a cleanup function(window.removeEventListener('scroll')).
+
+  - SOLVE by creating a new ASYNC function inside useEffect() and run that!
+
+  - EX: useEffect(() => {
+          const getHomeData = async () => {
+            const response = await axios.get('/api/products');
+            setProducts(response.data);
+          };
+
+          getHomeData();  
+        }, []);
+
 * 

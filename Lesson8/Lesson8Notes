@@ -1,0 +1,58 @@
+* Data Mutation = Update data in the backend.
+
+* axios.get() GETS data from the backend.
+  - EX: axios.get('/api/cart-items');
+
+* axios.post() CREATES data in the backend.
+  - We can send information to the backend with POST.
+
+  - EX: axios.post('/api/cart-items', {
+                  productId: product.id, 
+                  quantity: 1
+                })
+
+* We cannot put a hook inside a loop. They only belong at the top level.
+  - EX: return (
+    <div className="products-grid">
+      {products.map((product) => {
+        const [quantity, setQuantity] = useState(1);
+
+        ^ X
+
+  - We can solve this by breaking each product into its OWN COMPONENT.
+
+* Each request has a TYPE (HTTP Method).
+  - EX: axios.get('api/cart-items');
+
+    - Sends 2 pieces of information: type and URL path
+      -  GET and 'api/cart-items'
+
+    - EX: axios.post('api/cart-items');
+
+    - Sends 2 pieces of information: type and URL path
+      -  POST and 'api/cart-items'
+
+* When backend receives our request, it looks at BOTH the type and URL path to decide what to do.
+
+* 4 common types of requests:
+  - GET = get some data
+
+  - POST = create some data
+
+  - PUT = update some data
+
+  - DELETE = delete some data
+
+* Axios has a method for each type:
+  - axios.get('api/cart-items');
+
+  - axios.post('api/cart-items');
+
+  - axios.put('api/cart-items');
+
+  - axios.delete('api/cart-items');
+
+* useNavigate hook in React lets you redirect/navigate to another page.
+  - NOT async. It finishes immediately.
+
+* 

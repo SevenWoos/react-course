@@ -1,0 +1,14 @@
+* Controlled Input = when we have a "value" and an "onChange" property.
+  - EX: <select value={quantity} onChange={(event) => {
+                const quantitySelected = Number(event.target.value);
+                setQuantity(quantitySelected);
+              }}>
+  
+  - Make sure to move the state INSIDE the loop so each product has its own quantity selector, NOT outside, or all selectors will change when we change one quantity.
+
+  - EX: const [quantity, setQuantity] = useState(1);
+
+* ^ BREAKS rules of useReact hooks, since we can ONLY put them at the TOP of the component.
+  - We can fix this by separating EACH product into its OWN COMPONENT.
+
+* 

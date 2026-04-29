@@ -11,4 +11,96 @@
 * ^ BREAKS rules of useReact hooks, since we can ONLY put them at the TOP of the component.
   - We can fix this by separating EACH product into its OWN COMPONENT.
 
+* NPM packages for automated testing:
+  - Jest
+  - Vitest
+
+* "--save-dev" = means only for development.
+  - EX: npm install --save-dev vitest@3.12
+
+* Unit Test = we test 1 piece/unit of the code.
+
+* "npx vitest" to run tests.
+  - Searches our code for all files that end with ".test.js"
+
+  - Displays result in cmd line.
+
+* "describe" groups tests together in a test suite.
+
+* test suite = group of tests.
+
+* Integration Test = test multiple units of code working together.
+
+* render = display the component on the page.
+
+* When testing a component, we use render.
+  - EX: render(<Product />);
+
+* npm install for integration tests.
+  - npm install --save-dev @testing-library/react@16.3.0 @testing-library/jest-dom@6.6.3 @testing-library/user-event@14.6.1 jsdom@26.1.0
+
+  - Also need to create a vitest.config.js file.
+
+  - Also need to create a setupTests.js file.
+    - Adds methods to expect(), like:
+      - expect().tobeInTheDocument()
+      - expect().toHaveAttribute()
+
+* This renders a component in a fake webpage.
+  - import { render } from '@testing-library/react';
+
+* In tests we should NOT contact a real backend.
+  - We can instead mock the function.
+
+* Mock = create a fake version of a function.
+  - EX: mock loadCart() since it calls from the real backend.
+
+  - EX: const loadCart = vi.fn();
+
+* vi.fn() = creates a fake function that does not do anything. A mock.
+
+* "screen" lets us check the fake webpage.
+
+* screen.getByText() searches the fake webpage screen for an element with a specific text.
+  - EX: expect(
+      screen.getByText('Black and Gray Athletic Cotton Socks - 6 Pairs')
+    ).toBeInTheDocument();
+
+* To search for images in tests, we need to add a test_ID to the image element.
+  - EX: <div className="product-container">
+      <div className="product-image-container">
+        <img className="product-image"
+          data-testid="product-image"
+          src={product.image} />
+      </div>
+
+    - Then use this test:
+      - expect(
+          screen.getByTestId('product-image')
+        ).toHaveAttribute('src', 'images/products/athletic-cotton-socks-6-pairs.jpg');
+
+* We can test for user interactions like clicking a button, using this library.
+  - @testing-library/user-events
+
+  - import userEvent from '@testing-library/user-event';
+
+* Setup the user with userEvent.setup(). Following coe sets up and simulates a click.
+  - user.click() = async and returns a Promise.
+
+  - const user = userEvent.setup();
+    user.click();
+
+* Mocks entire axios package. When we import from acios, we will get a fake version of it.
+  - vi.mock('axios');
+
+* Use beforeEach() test hook to run setup code before running each test.
+
+* "Mock the Implementation" = make the mock do whatever we want.
+
+* Async makes a function return a Promise.
+
+* MemoryRouter = specifically for testing.
+
+* within() = lets us find things within a specific element.
+
 * 

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { formatMoney } from '../../utils/money';
 
@@ -11,8 +12,13 @@ export function CartItemDetails({ cartItem, loadCart }) {
     await loadCart();
   };
 
-  const updateQuantity = () => {
+  const updateQuantity = async () => {
     if (isUpdatingQuantity) {
+      await axios.put(`/api/cart-items/${cartItem.productId}`, {
+        quantity: Number(quantity)
+      });
+      await loadCart();
+      
       setIsUpdatingQuantity(false);
     } else {
       setIsUpdatingQuantity(true);

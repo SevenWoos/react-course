@@ -1,0 +1,311 @@
+* Controlled Input = when we have a "value" and an "onChange" property.
+  - EX: <select value={quantity} onChange={(event) => {
+                const quantitySelected = Number(event.target.value);
+                setQuantity(quantitySelected);
+              }}>
+
+* Deploying = how to put a React app on the Internet.
+
+* Buying a physical computer for our backend is too mcuh of a HASSLE.
+  - We'd have to keep it running for 24 hours somewhere.
+
+  - Instead RENT a computer from AWS.
+
+  - AWS manage running of computer for us.
+
+* AWS (Amazon Web Services) = collection of services that help us put stuff on the Internet.
+  - Biggest service for deploying websites on the Internet.
+
+* EC2 (Elastic Compute Cloud) = lets us rent a computer from AWS.
+  - AKA Infrastructure as a Service(IaaS)
+
+  - Means AWS manages the infrastructure or computers for us.
+
+  - 1 Instance = 1 EC2 computer
+
+* To rent a computer on AWS:
+  - Open EC2
+
+  - Open Instances tab
+
+  - Then click "Launch Instances"
+
+* BUT EC2 only gives us a COMPUTER. We still need to:
+  - Install NodeJS
+
+  - Connect it to the Internet
+
+  - Upload our code
+
+* To solve SETUP on AWS, we can use the "Elastic Beanstalk" service.
+  - Search "Elastic Beanstalk" in AWS.
+
+  - Think of "Elastic Beanstalk" as layer on top of EC2.
+
+* Elastic Beanstalk uses EC2 to rent a computer and installs all the software we need.
+  - It also connects the computer to the Internet.
+
+  - Elastic Beanstalk does all the software setup for us.
+
+  - All we need to do, is just upload our code to Elastic Beanstalk. AKA Platform as a Service (PaaS).
+
+* Elastic Beanstalk is a Platform as a Service (PaaS).
+   - This means it manages the infrastructure and software for us.
+
+*  Create environment on Elastic Beanstalk page.
+  - Click on "Environments" tab.
+
+  - Click "Create Environment" button.
+
+  - In "Configure Environment" page, select "Web server environment" for the "Environment Tier"
+
+  - Provide an application name in "Application Information"
+
+  - In "Platform" section, we select the technology we want to use.
+    - For "Platform" dropdown, select "Node.js"
+
+  - For "Application code", we can:
+    - Use the "Sample Application"
+
+    - Or uplaod our own code.
+
+  - For "Presets", choose:
+    - "Single instance (free tier eligible)"
+  
+
+* Role = gives Elastic Beanstalk permission to use other services in AWS.
+  - We need to create one.
+
+* For the "Configure service access":
+  - In "Service Role" section, click "Create role" and use the default values.
+    - Trusted entity type:
+      - "AWS service"
+    
+    - Use case:
+      - "Elastic Beanstalk - Environment"
+
+  - Refresh "Service role" and select role we just created.
+
+  - In "EC2 instance profile", we also need to click "Create role". Use the same default values for creation.
+
+    - Refresh "EC2 instance profile" and select role we just created.
+
+  - Can leave "EC2 key pair - optional" blank.
+
+
+* For "Set up networking, database, and tags - optional", just use default values and click "next".
+
+* For "Configure instance traffic and scaling - optional", scroll down to "Capacity".
+  - In "Capacity", got to dropdowns in "Instance Types".
+  
+  - Here, we get to choose the size of the computer we want to rent from EC2.
+
+  - If you created your account after July 15, 2025 use these instance types:
+    - t3.micro
+    - t3.small
+
+* For "Configure updates, monitoring, and logging - optional", use the default options.
+
+* Finally click "Create".
+  - Elastic Benastalk is now going to:
+
+    - Rent a computer using EC2.
+
+    - Install needed software onto computer like NodeJS and npm.
+
+    - Do all the configs to connect computer to the Internet.
+
+* We can now select our domain to open the website.
+
+  - http://ecommerce-project-react-env.eba-d3sphc7z.us-east-2.elasticbeanstalk.com/
+
+  - We should now see a sample NodeJS application on this page.
+
+* Our code has 2 parts, the backend and frontend.
+
+  - We put the backend on the Internet FIRST.
+
+  - Then we put the frontend.
+
+* In our "Ecommerce-project-react-env" application, click the "Upload and deploy" button to upload our backend first.
+
+  - We need to upload our backend as a ZIP FILE.
+
+  - Go to VSCode and wee already have a cmd setup to do this.
+
+  - Open terminal and cd into "ecommerce-backend"
+
+  - Run command "npm run zip".
+
+  - This cmd will save all the backend code into a zip file.
+
+  - Upload zip file and then click "Deploy"
+
+  - Elastic Beanstalk will now take the backend code and put it on the Internet.
+
+  - Click the domain link again when deployment is done and we should see a different application now.
+    - "index.html not found" is expected
+
+    - Go to the url and at the end, add "/api/products"
+
+      - This will give us the products data.
+        - http://ecommerce-project-react-env.eba-d3sphc7z.us-east-2.elasticbeanstalk.com/api/products
+
+* We can now upload our FRONTEND code.
+  - We also need to prep it.
+
+  - Notice, we use a lot of jsx files in our frontend, and the browser does NOT understand JSX, only normal JavaScript.
+
+  - We need to CONVERT jsx codee to JavaScript. can do so with vite command "npm run build".
+    - Converts the code and saves it in a folder called "dist".
+
+    - Inside "dist" we have an:
+      - "index.html" file that contains HTML for react website.
+
+      - "assets" folder has a "index-BM...." JS file that contains all our React code converted into JS, all COMBINED into ONE file.
+        - It also minified(compressed) the code.
+
+      - "assets" folder has a "index-BM...." CSS file that does the same thing with compression.
+
+      - Frontend is now OPTIMIZED
+
+* One way to download our React code is:
+  - Put our frontend code in another service like "Github Pages"
+  
+  - Then when we visit the website our browser will download the frontend code.
+
+* Another way is to notice, we ALREADY have our BACKEND computer running on Elastic Beanstalk.
+
+  - We can just REUSE this backend computer.
+
+  - Put our React code into the backend computer.
+
+  - Our browser will then download the React code from the BACKEND computer.
+
+  - Common setup that simplifies setup, since we only need to set up ONE computer.
+
+  - In VSCode, take "dist" folder and drag it into our "ecommerce-backend" folder.
+
+  - Go back to terminal, cd into "ecommerce-backend" and recreate the zip file with the "npm run zip" command.
+
+  - Upload this new zip file to Elastic Beanstalk.
+    - Click "Upload and deploy"
+
+    - Select new zip file 2.
+
+    - Click "Deploy"
+
+    - When done, click the domain URL again.
+
+* Our React app is now on the Internet!
+
+* How does this work?
+  - 1st, we put our backend on the Internet, so it runs on a separate computer.
+
+  - Then, we put our frontend code in the backend computer.
+
+  - We have some code in the backend, where when we visit the backend using the URL path '/", the backend sends back the React code to our computer.
+
+  - We now have the React code running on our computer and it communicates with the backend running on another computer.
+
+* We can confifgure vite to put the "dist" folder into the "ecommerce-backend" folder directly.
+  - Go to "vite.config.js"
+
+  - "outDir" property tells vite where to put the "dist" folder. use the path file to cd into the proper folder.
+
+  - build: {
+    outDir: '../ecommerce-backend/dist'
+  }
+
+  - Delete old "dist" folder from "ecommerce-backend".
+
+  - Run "npm run build" in "ecommerce-project".
+
+  - The "dist" folder should now be in the "ecommerce-backend" folder.
+
+* How do we deploy a React app without a backend?
+  - What if we don't know how to write backend code yet???
+
+  - We can actually just put the code on the Internet directly.
+    - EX: chatbot-project does not use a backend, only React code.
+
+  - To deploy this project, we can cd into "chatbot-project" and run "npm run build"
+
+  - This converts react code into normal JS and save it in a "dist" folder.
+
+  - If we just have a frontend, we can upload it directly to a service like Github Pages.
+
+* Load Balancer: adds ANOTHER computer in front of our backend computer
+  - When we have a really busy website with a lot of traffic, ONE computer may not be enough to handle all the requests.
+
+  - We can run the backend on MULTIPLE computers. The load balancer will DISTRIBUTE the requests across the many computers. Allows us to handle more users.
+
+* Let's optimize our AWS deployment with Load Balancers.
+  - Go to "Environment" tab and then click on "Configuration" tab.
+
+  - Scroll down to "Instance traffic and scaling" section.
+
+  - Click "Edit" and then scroll to "Capacity" section.
+
+  - Go to "Environment Type" dropdown and select "Load Balanced".
+
+  - This adds ANOTHER computer in front of our backend computer, called a Load Balancer.
+
+  - We can use "Instances" to decide on how many backend computers to run. Min and max.
+
+  - Scroll down and click "Apply"
+
+  - Elastic Beanstalk will now setup a Load Balancer computer in front of our backend computer.
+
+* Currently all the data for our React app(products, cart, etc) are stored in a database.
+  - Saved in a sqlite file.
+
+  - When we put the React app on the Intenret, we usually put the database on a SEPARATE COMPUTER.
+
+  - This lets us share the data between backend computers.
+
+* Save data onto separate computer.
+  - Go to "Environment" tab and then click on "Configuration" tab.
+
+  - Scroll down to "networking and database" section.
+
+  - Click "Edit" and scroll down to "database"
+
+  - Click "Enable database"
+
+  - Elastic Beanstalk will automatically create a new computer running a database and connect it to the backend.
+
+  - We can select the database we want to use. "Engine", "Engine version", "Instance class", "Storage"
+
+  - "Instance Class" = size of the computer running the database.
+    - Select "db.t3.micro"
+
+    - Set a password
+
+  - Scroll down and click "Apply"
+  
+  - AWS will setup a separate computer to run the database.
+
+* Setup a domain name to make our website easier to access.
+  - Purchase a domain name first.
+
+  - Use the "Route 53" service in AWS.
+
+  - Route 53 lets us manage domain names in AWS.
+
+  - Click "Create Hosted Zone"
+
+  - Hosted Zone = lets us connect a domain name to our app.
+
+* Fix the "Not Secure" error by getting an SSL Certificate on AWS.
+  - SSL Certificate = special file that enables encryption.
+
+  - Search for "Certificate Manager" service in AWS.
+
+  - Click "Request a certificate", then "request a public certificate"
+
+  - Enter the domain name you created.
+
+  - Make sure the "validation method" "DNS validation" is selected.
+
+* the 

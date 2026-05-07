@@ -1,0 +1,25 @@
+* React19 has support for Document Metadata. Means we can put elements that usually go on the <head> element directly inside our React component.
+  - <title>, <link>, <meta>
+
+* Before React19, we had to put elements inside a <Helmet> element.
+  - return (
+    <>
+      <Helmet>
+        <title>Ecommerce Project</title>
+      </Helmet>
+    </>
+  )
+
+* ref as a prop as of React19.
+  - We can use "ref" as an element and access it like a prop.
+
+  - EX: useRef()
+
+* React Compiler = optimizes our React code.
+  - BEFORE: When a component updates, it will re-create all the components inside. Lead to performance issues.
+    - We had to use useMemo(), useCallback(), and memo() to prevent a component from being re-created.
+
+  - AFTER: React Compiler adds these optimizations automatically.
+
+* How to Setup the React Compiler
+  - 

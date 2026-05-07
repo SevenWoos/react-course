@@ -22,12 +22,12 @@ export function Header() {
       </div>
 
       <div className="right-section">
-        <Link className="orders-link header-link" to="orders">
+        <Link className="orders-link header-link" to="/orders">
 
           <span className="orders-text">Orders</span>
         </Link>
 
-        <Link className="cart-link header-link" to="checkout">
+        <Link className="cart-link header-link" to="/checkout">
           <img className="cart-icon" src="images/icons/cart-icon.png" />
           <div className="cart-quantity">3</div>
           <div className="cart-text">Cart</div>

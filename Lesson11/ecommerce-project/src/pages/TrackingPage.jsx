@@ -47,7 +47,7 @@ export function TrackingPage({cart}) {
 
       <div className="tracking-page">
         <div className="order-tracking">
-          <Link className="back-to-orders-link link-primary" to="orders">
+          <Link className="back-to-orders-link link-primary" to="/orders">
             View all orders
           </Link>
 

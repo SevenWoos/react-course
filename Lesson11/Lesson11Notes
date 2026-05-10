@@ -98,4 +98,9 @@
 * allowJs = lets us mix TypeScript and JavaScript files.
   - EX: "allowJs": true
 
+* To open apps in Browser and NOT VSCode's integrated browser, look for this in settings.
+  - Workbench > Browser: Open Localhost Links
+
+  - Disable the above feature.
+
 * 

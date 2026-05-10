@@ -79,5 +79,23 @@
     - const [count, setCount] = useState(0)
 
     - count.toLowerCase();
-    
+
+*  Convert an EXISTING project to TypeScript.
+  - Move ALL our JS "ecommerce-project" folder to the outside with "ecommerce-project-ts"
+
+  - Delete the "node_modules" fodler
+
+  - Move ONLY the folders/files that were CHANGED into the "ecommerce-project-ts" and replace accordingly.
+
+  - Do NOT rename any imports if prompted.
+
+  - When moving the "App.jsx", remember to rename it to "App.tsx" and replace the old file.
+
+  - When moving the "main.jsx", remember to rename it to "main.tsx" and replace the old file.
+
+  - Move 'react/prop-types': 'off' to eslint.config.js. Do NOYt replace the file, since a lot of the code is specific to TypeScript.
+
+* allowJs = lets us mix TypeScript and JavaScript files.
+  - EX: "allowJs": true
+
 * 
